@@ -15,6 +15,34 @@ This script allows players to spawn and attach props (objects) to their characte
 - **Export Code**: Automatically generates attachment code
 - **Real-time Preview**: See changes immediately in-game
 
+## 📦 Dependencies
+
+### Runtime Dependencies (Required for Script to Function)
+
+**FiveM Server Requirements:**
+- **FiveM Server**: Build 2802 or higher (supports `fx_version 'cerulean'`)
+- **Game**: GTA V (game 'gta5')
+- **Lua**: Version 5.4 enabled (lua54 'yes')
+
+**No External FiveM Resources Required:**
+- This script is **standalone** and does not depend on any other FiveM resources
+- All UI components are bundled in `web/dist/` directory
+- No additional frameworks (ESX, QBCore, etc.) are needed
+
+### Development Dependencies (Only for Building/Modifying Web UI)
+
+If you want to modify and rebuild the web interface, you need:
+
+**Node.js Dependencies** (from `web/package.json`):
+- **React**: ^18.2.0 - UI framework
+- **Three.js**: ^0.151.3 - 3D graphics library
+- **@react-three/fiber**: ^8.12.2 - React renderer for Three.js
+- **@react-three/drei**: ^9.65.5 - Helpers for react-three-fiber
+- **TypeScript**: ^4.6.4 - Type-safe JavaScript
+- **Vite**: ^3.2.0 - Build tool
+
+**Note**: The `web/dist/` folder already contains pre-built files, so you **don't need to install Node.js or npm dependencies** unless you're modifying the web UI.
+
 ## 🚀 Installation
 
 1. Download or clone this repository
