@@ -91,6 +91,34 @@ If you want to modify and rebuild the web interface, you need:
 - **E Key** (45): Switch between Translate and Rotate modes
 - **Enter** (200): Finish editing and export code
 
+## 🎨 What is a Gizmo?
+
+A **gizmo** is a 3D visual widget that appears in the editor to help you manipulate objects interactively. Think of it as the "handles" you see in professional 3D software like Blender or Unity.
+
+### Gizmo Modes
+
+This script supports two gizmo modes:
+
+**1. Translate Mode (Move)**
+- Shows **3 colored arrows** (X=Red, Y=Green, Z=Blue)
+- Click and drag an arrow to move the prop along that axis
+- Shows **3 colored planes** for multi-axis movement
+- Default mode when editor opens
+
+**2. Rotate Mode**
+- Shows **3 colored circles** around the prop
+- Click and drag a circle to rotate the prop on that axis
+- Switch to this mode by pressing **E** or **R** key
+
+### How the Gizmo Works
+
+1. **Visual Representation**: The gizmo is rendered using `TransformControls` from `@react-three/drei` (a React Three.js library)
+2. **Real-time Updates**: When you drag the gizmo, your movements are instantly sent to the Lua client via NUI callbacks
+3. **Coordinate Translation**: The gizmo operates in a virtual 3D space, and coordinates are translated to bone-relative positions
+4. **Interactive Handles**: Each arrow/circle is clickable and draggable with your mouse cursor
+
+The gizmo provides an intuitive, visual way to position props instead of manually typing coordinate values.
+
 ## 🔧 How It Works
 
 ### Architecture
