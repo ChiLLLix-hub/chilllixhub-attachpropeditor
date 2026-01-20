@@ -84,6 +84,69 @@ If you want to modify and rebuild the web interface, you need:
 /prop prop_cs_beer_bot_01 SKEL_R_Hand
 ```
 
+## 📋 Pre-configured Props (config.lua)
+
+The script includes a `config.lua` file with pre-configured prop attachments organized by body location. This is useful for:
+- Quickly testing common prop placements
+- Creating a prop attachment system for your server
+- Integrating with inventory systems (ESX, QBCore, etc.)
+
+### Configuration Structure
+
+Props are organized into three categories:
+
+**Shoulder Props** (`Config.ShoulderProps`)
+- Decorative items that attach to the left shoulder bone (10706)
+- Includes: character figures (Goku, Batman, SpongeBob, etc.)
+- Perfect for collectibles, buddy characters, or cosmetic items
+
+**Back Props** (`Config.BackProps`)
+- Items that attach to the upper back bone (24818)
+- Includes: bags, weapons, tools, floaties
+- Ideal for backpacks, back-mounted weapons, or equipment
+
+**Head Props** (`Config.HeadProps`)
+- Items that attach to the head bone (31086)
+- Includes: crowns, balls, decorative items
+- Great for hats, crowns, or head accessories
+
+### Using Config Props
+
+Access any prop configuration via `Config.AllProps[propKey]`:
+
+```lua
+-- Example: Get the 'batman' shoulder prop configuration
+local propData = Config.AllProps['batman']
+-- Returns: { model, bone, offset, rotation, scale }
+```
+
+### Adding Custom Props
+
+1. Use the `/prop` command to position your prop perfectly
+2. Copy the generated coordinates from F8 console
+3. Add to `config.lua` in the appropriate section:
+
+```lua
+['my_custom_prop'] = {
+    model = 'your_prop_model',
+    bone = 10706,  -- Shoulder, Back (24818), or Head (31086)
+    offset = vector3(0.12, 0.05, 0.18),  -- From editor output
+    rotation = vector3(0.0, 0.0, -177.0),  -- From editor output
+    scale = 1.0
+},
+```
+
+### Inventory Integration
+
+The `shared/items.lua` file provides example code for integrating props with inventory systems:
+
+- **QBCore Example**: Item definitions for qb-core/shared/items.lua
+- **ESX Example**: SQL INSERT statements for ESX item database
+- **Integration Code**: Helper functions to attach props from config
+- **Event Handlers**: Example usage with inventory item events
+
+See `shared/items.lua` for complete integration examples and adapt to your framework.
+
 ### Controls (In-Editor)
 
 - **Mouse**: Click and drag the gizmo arrows/circles to move/rotate the prop
