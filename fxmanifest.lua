@@ -4,6 +4,10 @@ lua54 'yes'
 
 ui_page 'web/dist/index.html'
 
+shared_scripts {
+	'config.lua'
+}
+
 client_scripts {
 	"client/*.lua"
 }
